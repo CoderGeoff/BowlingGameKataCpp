@@ -84,9 +84,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="DoRoll.h" />
     <ClInclude Include="TestFixtureMacro.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="WithGame.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BowlingGameTests.cpp" />

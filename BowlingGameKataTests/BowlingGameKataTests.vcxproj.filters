@@ -24,6 +24,12 @@
     <ClInclude Include="TestFixtureMacro.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="DoRoll.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="WithGame.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
