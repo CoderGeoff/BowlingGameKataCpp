@@ -3,14 +3,16 @@
 
 
 BowlingGame::BowlingGame()
+    : m_RunningTotal(0)
 {
 }
 
 void BowlingGame::Roll(int pins)
 {
+    m_RunningTotal += pins;
 }
 
 int BowlingGame::Score()
 {
-    return 0;
+    return m_RunningTotal;
 }
