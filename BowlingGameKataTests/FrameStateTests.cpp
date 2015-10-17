@@ -1,0 +1,15 @@
+#include "stdafx.h"
+#include <cppUnit/TestCase.h>
+#include <cppUnit/extensions/HelperMacros.h>
+
+#include "TestFixtureMacro.h"
+#include "../BowlingGameKata/FrameState.h"
+
+TEST_FIXTURE(FrameStateTests, GivenNoBallsBowled_FrameShouldNotBeASpare);
+
+void FrameStateTests::GivenNoBallsBowled_FrameShouldNotBeASpare()
+{
+    FrameState frameState;
+    bool isSpare = frameState.IsSpare();
+    CPPUNIT_ASSERT_EQUAL(false, isSpare);
+}
