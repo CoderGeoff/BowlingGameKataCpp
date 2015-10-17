@@ -17,9 +17,14 @@ void FrameStateTests::GivenNoBallsBowled_FrameShouldNotBeASpare()
 
 void FrameStateTests::GivenOneSpareFrameBowled_FrameShouldBeASpare()
 {
+    // Given
     FrameState frameState;
     frameState.Roll(0);
     frameState.Roll(10);
+
+    // When
     bool isSpare = frameState.IsSpare();
+    
+    // Then
     CPPUNIT_ASSERT_EQUAL(true, isSpare);
 }
