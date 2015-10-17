@@ -4,8 +4,8 @@
 
 #include "TestFixtureMacro.h"
 
-TEST_FIXTURE(BowlingGameTests, NoBallsRolledShouldScore0);
+TEST_FIXTURE(BowlingGameTests, When20GutterBallsRolled_ScoreShouldBe0);
 
-void BowlingGameTests::NoBallsRolledShouldScore0()
+void BowlingGameTests::When20GutterBallsRolled_ScoreShouldBe0()
 {
 }
