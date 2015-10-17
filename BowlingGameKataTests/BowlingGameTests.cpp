@@ -9,11 +9,16 @@ TEST_FIXTURE(BowlingGameTests, GivenTwenty0sBowled_WhenGameScoreCalculated_Shoul
 
 void BowlingGameTests::GivenTwenty0sBowled_WhenGameScoreCalculated_ShouldBe0()
 {
+    // Given
     BowlingGame game;
+
+    // When
     for (int i = 0; i < 20; ++i)
     {
         game.Roll(0);
     }
+
+    // Then
     int score = game.Score();
     CPPUNIT_ASSERT_EQUAL(0, score);
 }
