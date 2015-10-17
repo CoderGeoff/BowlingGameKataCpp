@@ -12,5 +12,5 @@ void BowlingGame::Roll(int pins)
 
 int BowlingGame::Score()
 {
-    return -1;
+    return 0;
 }
