@@ -4,8 +4,10 @@ class DoRoll
 {
     BowlingGame* m_Game;
     int m_Pins;
-    friend class WithGame;
+
     explicit DoRoll(BowlingGame* game, int pins) : m_Game(game), m_Pins(pins) {}
+
+    friend class WithGame;
 public:
     void Times(int times)
     {
