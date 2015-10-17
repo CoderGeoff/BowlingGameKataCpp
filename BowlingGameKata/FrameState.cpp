@@ -2,12 +2,17 @@
 #include "FrameState.h"
 
 
-FrameState::FrameState()
+FrameState::FrameState() : m_CurrentFrameScore(0)
 {
 }
 
 bool FrameState::IsSpare()
 {
-    return false;
+    const int MaximumFrameScore = 10;
+    return m_CurrentFrameScore == MaximumFrameScore;
 }
 
+void FrameState::Roll(int pins)
+{
+    m_CurrentFrameScore += pins;
+}
