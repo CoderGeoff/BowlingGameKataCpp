@@ -6,7 +6,8 @@
 #include "../BowlingGameKata/FrameState.h"
 
 TEST_FIXTURE(FrameStateTests, GivenNoBallsBowled_FrameShouldNotBeASpare,
-    GivenOneSpareFrameBowled_FrameShouldBeASpare);
+    GivenOneSpareFrameBowled_FrameShouldBeASpare,
+    GivenOneSpareFrameFollowedByAZeroBall_FrameShouldNotBeASpare);
 
 void FrameStateTests::GivenNoBallsBowled_FrameShouldNotBeASpare()
 {
@@ -27,4 +28,19 @@ void FrameStateTests::GivenOneSpareFrameBowled_FrameShouldBeASpare()
     
     // Then
     CPPUNIT_ASSERT_EQUAL(true, isSpare);
+}
+
+void FrameStateTests::GivenOneSpareFrameFollowedByAZeroBall_FrameShouldNotBeASpare()
+{
+    // Given
+    FrameState frameState;
+    frameState.Roll(0);
+    frameState.Roll(10);
+    frameState.Roll(0);
+
+    // When
+    bool isSpare = frameState.IsSpare();
+
+    // Then
+    CPPUNIT_ASSERT_EQUAL(false, isSpare);
 }
