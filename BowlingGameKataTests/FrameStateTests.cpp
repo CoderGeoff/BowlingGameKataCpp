@@ -5,11 +5,21 @@
 #include "TestFixtureMacro.h"
 #include "../BowlingGameKata/FrameState.h"
 
-TEST_FIXTURE(FrameStateTests, GivenNoBallsBowled_FrameShouldNotBeASpare);
+TEST_FIXTURE(FrameStateTests, GivenNoBallsBowled_FrameShouldNotBeASpare,
+    GivenOneSpareFrameBowled_FrameShouldBeASpare);
 
 void FrameStateTests::GivenNoBallsBowled_FrameShouldNotBeASpare()
 {
     FrameState frameState;
     bool isSpare = frameState.IsSpare();
     CPPUNIT_ASSERT_EQUAL(false, isSpare);
+}
+
+void FrameStateTests::GivenOneSpareFrameBowled_FrameShouldBeASpare()
+{
+    FrameState frameState;
+    frameState.Roll(0);
+    frameState.Roll(10);
+    bool isSpare = frameState.IsSpare();
+    CPPUNIT_ASSERT_EQUAL(true, isSpare);
 }
