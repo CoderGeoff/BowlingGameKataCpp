@@ -8,6 +8,6 @@ FrameState::FrameState()
 
 bool FrameState::IsSpare()
 {
-    return true;
+    return false;
 }
 
