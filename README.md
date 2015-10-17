@@ -49,6 +49,7 @@ OK (1)
 to show that one test has passed and none failed.
 
 ### Step 2. The first test, Red stage: write the first failing test
+
 1. Open the file BowlingGameTests.cpp. The first test, When20GutterBallsRolled_ScoreShouldBe0, has been started for you. 
 1. Implement the test as follows
   1. Creates a new BowlingGame object. Don't worry that the code won't complile, just carry on coding.
@@ -77,12 +78,56 @@ Nice.
 
 ### Step 3. The first test, Green stage: get the first test to pass
 In the green stage, we write just enough code to get the test to pass. So
+
 1. Change the implementation of Game::Score() to return 0.
 2. Compile and run the tests.
 3. Verify that the test passes.
 4. Commit your changes to your local git repository.
 
 ### Step 4. The first test, refactor stage.
-1. Look over your test and see if there's anything - variable names, formatting etc. - that could be improved. 
+
+1. Look over your test and see if there's anything - variable names, use of whitespace, etc. - that could be improved. 
 Each time you make an improvement, run the tests again to verify they pass, and ##commit the changes to the git repository##.
 
+### Step 5. The second test: 20 ones should score 20
+
+1. Create a new test in the BowlingGameTests test suite, called GivenTwenty1sBowled_WhenGameScoreCalculated_ShouldBe20.
+2. Implement the test. Don't worry about any duplication between the test you're writing and the one that's already there; you'll deal with that in the refactor step.
+3. Run it and verify that it fails on the assert.
+
+### Step 6. Implementation for the second test
+
+1. Implement just enough code in Game::Roll() and Game::Score() to get both tests passing. 
+The implementation should do no more than keep a running total of the number of pins scored; the rest of the implementation can wait until we have 
+a test to validate it.
+2. Run the tests and verify that they pass.
+3. Commit the code to the git repository.
+
+### Step 7. Refactor
+
+1. Go back to the tests, and remove the duplication in the calls to Roll() by factoring out a useful common method that both tests can use. 
+2. Compile and run the tests to verify they still both work.
+3. Commit to git.
+1. Look over your tests and the BowlingGame class to check whether there's anything else that could be improved. Each time you make an improvement, run the tests again to verify they pass, and commit.
+
+### Step 8. The third test, Red stage: A spare should collect a bonus
+
+1. Write a failing test to capture the bonus after a spare. The simplest test we can write is:
+  ## the first frame is a spare (say, 0 then 10)
+  ## the next ball scores (say, 3)
+  ## the remaining balls all go down the gutter
+So implement the test, GivenOneSpareThen3Bowled_WhenGameScoreCalculated_ShouldBe16.
+
+2. Compile and run the test.
+3. Verify that it fails on the assert.
+
+### Step 9. The third test, Green stage: implement the bonus for a spare
+To implement spares, we're going to need some information about frames. We're going give the responsibility of monitoring the state of a frame to another class FrameState.
+We're going to calculate spare bonnus using a third class SpareBonus. We'll implement both these classes using TDD, starting out with writing a failing test. But we've got 
+a problem: we've already got one test failing; now we need to write another failing test before we can get this one to pass. There are a few options
+
+  ## Mark the current failing test to be ignored, so that it's not run when we run the tests.
+  ## Revert the last commit and go back to the point where all the tests were passing.
+  ## Create a new branch from the point of the last commit and develop the classes we need there.
+  
+Each has it's merits. Here we're going to go with the last option.
