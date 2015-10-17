@@ -5,9 +5,9 @@
 #include "TestFixtureMacro.h"
 #include "../BowlingGameKata/BowlingGame.h"
 
-TEST_FIXTURE(BowlingGameTests, When20GutterBallsRolled_ScoreShouldBe0);
+TEST_FIXTURE(BowlingGameTests, GivenTwenty0sBowled_WhenGameScoreCalculated_ShouldBe0);
 
-void BowlingGameTests::When20GutterBallsRolled_ScoreShouldBe0()
+void BowlingGameTests::GivenTwenty0sBowled_WhenGameScoreCalculated_ShouldBe0()
 {
     BowlingGame game;
     for (int i = 0; i < 20; ++i)
