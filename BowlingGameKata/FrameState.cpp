@@ -19,6 +19,7 @@ void FrameState::Roll(int pins)
 
 bool FrameState::IsStrike() const
 {
+    if (IsBonusBall()) return false;
     return m_CurrentFrameScore == MaximumFrameScore && m_BallCountInCurrentFrame == 1;
 }
 
@@ -29,6 +30,7 @@ bool FrameState::IsSpare() const
 
 bool FrameState::IsAtEndOfFrame() const
 {
+    if (m_CurrentFrameCount == 9) return false;
     return m_BallCountInCurrentFrame == 2 || m_CurrentFrameScore == MaximumFrameScore;
 }
 
@@ -41,5 +43,5 @@ void FrameState::SetStateToStartOfFrame()
 
 bool FrameState::IsBonusBall() const
 {
-    return m_CurrentFrameCount >= 10;
+    return m_CurrentFrameCount >= 9 && m_CurrentFrameScore >= 10;
 }
