@@ -20,5 +20,5 @@ void FrameState::Roll(int pins)
 
 bool FrameState::IsStrike()
 {
-    return true;
+    return false;
 }
