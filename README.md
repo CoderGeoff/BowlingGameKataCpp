@@ -116,6 +116,7 @@ a test to validate it.
   * the first frame is a spare (say, 0 then 10)
   * the next ball scores (say, 3)
   * the remaining balls all go down the gutter
+  
 So implement the test, GivenOneSpareThen3Bowled_WhenGameScoreCalculated_ShouldBe16.
 
 2. Compile and run the test.
