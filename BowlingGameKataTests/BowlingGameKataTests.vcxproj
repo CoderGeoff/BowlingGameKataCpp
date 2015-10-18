@@ -91,6 +91,7 @@
     <ClInclude Include="With.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BonusTests.cpp" />
     <ClCompile Include="BowlingGameTests.cpp" />
     <ClCompile Include="FrameStateTests.cpp" />
     <ClCompile Include="stdafx.cpp">
