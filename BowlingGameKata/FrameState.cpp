@@ -27,6 +27,7 @@ bool FrameState::IsStrike() const
 
 bool FrameState::IsSpare() const
 {
+    if (IsBonusBall()) return false;
     return m_CurrentFrameScore == MaximumFrameScore && m_BallCountInCurrentFrame == MaximumBallCountInSingleFrame;
 }
 
