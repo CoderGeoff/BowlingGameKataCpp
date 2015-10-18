@@ -7,8 +7,8 @@ class FrameState
     void SetStateToStartOfFrame();
 public:
     FrameState();
-    bool IsSpare();
     void Roll(int pins);
     bool IsStrike();
+    bool IsSpare();
 };
 

@@ -7,17 +7,6 @@ FrameState::FrameState() : m_CurrentFrameScore(0), m_BallCountInCurrentFrame(0)
 {
 }
 
-bool FrameState::IsSpare()
-{
-    return m_CurrentFrameScore == MaximumFrameScore && m_BallCountInCurrentFrame == 2;
-}
-
-void FrameState::SetStateToStartOfFrame()
-{
-    m_BallCountInCurrentFrame = 0;
-    m_CurrentFrameScore = 0;
-}
-
 void FrameState::Roll(int pins)
 {
     if (IsAtEndOfFrame())
@@ -33,7 +22,19 @@ bool FrameState::IsStrike()
     return m_CurrentFrameScore == MaximumFrameScore && m_BallCountInCurrentFrame == 1;
 }
 
+bool FrameState::IsSpare()
+{
+    return m_CurrentFrameScore == MaximumFrameScore && m_BallCountInCurrentFrame == 2;
+}
+
 bool FrameState::IsAtEndOfFrame()
 {
     return m_BallCountInCurrentFrame == 2 || m_CurrentFrameScore == MaximumFrameScore;
 }
+
+void FrameState::SetStateToStartOfFrame()
+{
+    m_BallCountInCurrentFrame = 0;
+    m_CurrentFrameScore = 0;
+}
+
