@@ -113,9 +113,9 @@ a test to validate it.
 ### Step 8. The third test, Red stage: A spare should collect a bonus
 
 1. Write a failing test to capture the bonus after a spare. The simplest test we can write is:
-  ## the first frame is a spare (say, 0 then 10)
-  ## the next ball scores (say, 3)
-  ## the remaining balls all go down the gutter
+* the first frame is a spare (say, 0 then 10)
+* the next ball scores (say, 3)
+* the remaining balls all go down the gutter
 So implement the test, GivenOneSpareThen3Bowled_WhenGameScoreCalculated_ShouldBe16.
 
 2. Compile and run the test.
