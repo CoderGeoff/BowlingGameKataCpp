@@ -17,17 +17,17 @@ void FrameState::Roll(int pins)
     m_BallCountInCurrentFrame++;
 }
 
-bool FrameState::IsStrike()
+bool FrameState::IsStrike() const
 {
     return m_CurrentFrameScore == MaximumFrameScore && m_BallCountInCurrentFrame == 1;
 }
 
-bool FrameState::IsSpare()
+bool FrameState::IsSpare() const
 {
     return m_CurrentFrameScore == MaximumFrameScore && m_BallCountInCurrentFrame == 2;
 }
 
-bool FrameState::IsAtEndOfFrame()
+bool FrameState::IsAtEndOfFrame() const
 {
     return m_BallCountInCurrentFrame == 2 || m_CurrentFrameScore == MaximumFrameScore;
 }

@@ -3,12 +3,12 @@ class FrameState
 {
     int m_CurrentFrameScore;
     int m_BallCountInCurrentFrame;
-    bool IsAtEndOfFrame();
+    bool IsAtEndOfFrame() const;
     void SetStateToStartOfFrame();
 public:
     FrameState();
     void Roll(int pins);
-    bool IsStrike();
-    bool IsSpare();
+    bool IsStrike() const;
+    bool IsSpare() const;
 };
 
