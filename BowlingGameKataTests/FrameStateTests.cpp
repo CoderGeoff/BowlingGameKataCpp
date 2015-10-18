@@ -14,7 +14,8 @@ TEST_FIXTURE(FrameStateTests, GivenNoBallsBowled_FrameShouldNotBeASpare,
     GivenNoBallsBowled_FrameShouldNotBeAStrike,
     GivenOneStrikeFrameBowled_FrameShouldBeAStrike,
     GivenOneStrikeFollowedbySpare_FrameShouldBeASpare,
-    GivenAStrike_FrameShouldNotBeASpare);
+    GivenAStrike_FrameShouldNotBeASpare,
+    GivenAStrikeInTenthFrame_WhenNextBallBowled_ShouldBeBonusBall);
 
 void FrameStateTests::GivenNoBallsBowled_FrameShouldNotBeASpare()
 {
@@ -112,4 +113,18 @@ void FrameStateTests::GivenAStrike_FrameShouldNotBeASpare()
 
     // Then
     CPPUNIT_ASSERT_EQUAL(false, isSpare);
+}
+
+void FrameStateTests::GivenAStrikeInTenthFrame_WhenNextBallBowled_ShouldBeBonusBall()
+{
+    // Given
+    FrameState frameState;
+    With(&frameState).Roll(10).Times(10);
+
+    // When 
+    With(&frameState).Roll(0).Times(10);
+    bool isBonusBall = frameState.IsBonusBall();
+
+    // Then
+    CPPUNIT_ASSERT_EQUAL(true, isBonusBall);
 }

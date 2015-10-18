@@ -10,5 +10,6 @@ public:
     void Roll(int pins);
     bool IsStrike() const;
     bool IsSpare() const;
+    bool IsBonusBall() const;
 };
 

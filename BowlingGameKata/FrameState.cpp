@@ -38,3 +38,7 @@ void FrameState::SetStateToStartOfFrame()
     m_CurrentFrameScore = 0;
 }
 
+bool FrameState::IsBonusBall() const
+{
+    return false;
+}
