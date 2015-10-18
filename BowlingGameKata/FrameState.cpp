@@ -14,6 +14,10 @@ bool FrameState::IsSpare()
 
 void FrameState::Roll(int pins)
 {
+    if (m_IsSecondBallOfFrame)
+    {
+        m_CurrentFrameScore = 0;
+    }
     m_CurrentFrameScore += pins;
     m_IsSecondBallOfFrame = !m_IsSecondBallOfFrame;
 }
