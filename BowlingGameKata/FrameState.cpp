@@ -14,10 +14,6 @@ bool FrameState::IsSpare()
 
 void FrameState::Roll(int pins)
 {
-    if (m_IsAtEndOfFrame)
-    {
-        m_CurrentFrameScore = 0;
-    }
-    m_CurrentFrameScore += pins;
+    m_CurrentFrameScore = m_IsAtEndOfFrame ? pins : m_CurrentFrameScore + pins;
     m_IsAtEndOfFrame = !m_IsAtEndOfFrame;
 }
