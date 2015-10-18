@@ -1,19 +1,20 @@
-#include "../BowlingGameKata/BowlingGame.h"
+template <class WithT> class WithGame;
 
+template <class WithT>
 class DoRoll
 {
-    BowlingGame* m_Game;
+    WithT* m_Object;
     int m_Pins;
 
-    explicit DoRoll(BowlingGame* game, int pins) : m_Game(game), m_Pins(pins) {}
+    explicit DoRoll(WithT* object, int pins) : m_Object(object), m_Pins(pins) {}
 
-    friend class WithGame;
+    friend class WithGame<WithT>;
 public:
     void Times(int times)
     {
         for (int i = 0; i < times; ++i)
         {
-            m_Game->Roll(m_Pins);
+            m_Object->Roll(m_Pins);
         }
     }
 };

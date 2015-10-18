@@ -1,11 +1,11 @@
 #include "DoRoll.h"
 
-class BowlingGame;
+template <class WithT>
 class WithGame
 {
-    BowlingGame* m_Game;
+    WithT* m_Object;
 public:
-    explicit WithGame(BowlingGame* game) : m_Game(game) {}
-    DoRoll Roll(int pins) { return DoRoll(m_Game, pins); }
+    explicit WithGame(WithT* game) : m_Object(game) {}
+    DoRoll<WithT> Roll(int pins) { return DoRoll<WithT>(m_Object, pins); }
 };
 
