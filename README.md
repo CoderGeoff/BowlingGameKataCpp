@@ -7,7 +7,7 @@ This is the well-known "Bowling Game Kata". It's presented here as an introducti
 ## Introduction
 
 ### The objective
-Following TDD (Red, Green, Refactor) implement a class, ```BowlingGame```, that calculates a single player's score in a bowling game.
+Following TDD (Red, Green, Refactor) implement a class, BowlingGame, that calculates a single player's score in a bowling game.
 The class has two methods
 
 ```
@@ -87,7 +87,7 @@ In the green stage, we write just enough code to get the test to pass. So
 ### Step 4. The first test, refactor stage.
 
 1. Look over your test and see if there's anything - variable names, use of whitespace, etc. - that could be improved. 
-Each time you make an improvement, run the tests again to verify they pass, and ##commit the changes to the git repository##.
+Each time you make an improvement, run the tests again to verify they pass, and **commit the changes to the git repository**.
 
 ### Step 5. The second test: 20 ones should score 20
 
@@ -121,13 +121,76 @@ So implement the test, GivenOneSpareThen3Bowled_WhenGameScoreCalculated_ShouldBe
 2. Compile and run the test.
 3. Verify that it fails on the assert.
 
-### Step 9. The third test, Green stage: implement the bonus for a spare
+### Step 9. Starting the implementation for the spare bonus
 To implement spares, we're going to need some information about frames. We're going give the responsibility of monitoring the state of a frame to another class FrameState.
 We're going to calculate spare bonnus using a third class SpareBonus. We'll implement both these classes using TDD, starting out with writing a failing test. But we've got 
 a problem: we've already got one test failing; now we need to write another failing test before we can get this one to pass. There are a few options
 
-  ## Mark the current failing test to be ignored, so that it's not run when we run the tests.
-  ## Revert the last commit and go back to the point where all the tests were passing.
-  ## Create a new branch from the point of the last commit and develop the classes we need there.
+* Mark the current failing test to be ignored, so that it's not run when we run the tests.
+* Revert the last commit and go back to the point where all the tests were passing.
+* Stash the changes we've made in Step8 away somewhere.
   
 Each has it's merits. Here we're going to go with the last option.
+
+1. Create a stash of the changes made in Step8. You can do this in SourceTree by clicking on the Stash icon and giving the stash a suitable name.
+
+### Step 10. The first test for the class FrameState, Red Stage
+FrameState has three methods
+
+```
+void Roll(int pins)
+bool IsSpare()
+bool IsStrike()
+```
+
+IsSpare() returns true whenever the last call to Roll() marked the end of a frame that resulted in a spare.
+
+All we need the Frame to do right now is to tell us whenever we're at the end of a Spare frame.
+
+1. Create a new test ficture, FrameStateTests in a new file, FrameTests.cpp in BowlingGameTests.
+2. Implement the test GivenNoBallsBowled_FrameShouldNotBeASpare. The test should create a FrameState object, call IsSpare() and verify that the result is false. 
+3. Write just enough code to get the test to fail. When you create FrameState, implement it in the BowlingGame project. Take care when implementing IsSpare(); you're aiming to get a failing test.
+4. Run the tests and verify that the test fails on the assert.
+
+### Step 11. Continue implementing FrameState, using TDD
+
+1. Green. Get the test passing. Commit the code.
+2. Refactor. There's probably not a lot to do here, but check over your test to see if it can be improved. Commit after each improvement.
+3. Red. Write the next failing test: GivenOneSpareFrameBowled_FrameShouldBeASpare. Run the test and get it to fail on the assert.
+4. Green. Implement the code to pass the test. Implement just enough to detect the end of the first frame. Commit.
+5. Refactor. Commit your improvements as you go.
+6. Red. Write the third test: GivenOneSpareFrameFollowedByAZeroBall_FrameShouldNotBeASpare.
+7. Green. Implement sufficient code to pass the test. Commit.
+8. Refactor. Look at your code and your tests for any improvements. Commit as you go.
+9. Continue in the same way, adding the test, GivenSeventeenOnesAndOneTen_FrameShouldBeASpare. Commit your changes as you go.
+At this point, FrameState successfully handles spares. It doesn't handle strikes, and it doesn't handle any bonus balls bowled in the 10th frame.
+
+### Step 12. Implement scoring for spares
+ 
+1. Reinstate the test, GivenOneSpareThen3Bowled_WhenGameScoreCalculated_ShouldBe16, from Step 8. You can do this SourceTree by expanding the "Stashes" node in the view on the left, right clicking on the stash you saved and selecting the option to apply it.
+2. Buld the solution. 
+3. Run the tests. The new test should fail.
+4. Implement the behavior by introducing FrameState into BowlingGame. Run the test and verify it passes. Commit.
+
+### Step 13. Implement scoring for strikes
+1. Use TDD drive the implementation of FrameState::IsStrike() for frames 1 - 10. Stick to the Red, Green, Refactor cycle and commit the code as you go. Start with the tests 
+  1. FrameStateTests::GivenNoBallsBowled_FrameShouldNotBeAStrike
+  2. FrameStateTests::GivenOneStrikeFrameBowled_FrameShouldBeAStrike
+and add as many additional tests as necessary to complete the implementation. Don't write anything to handle the bonus balls in the 10th frame yet.
+2. Use the test, BowlingGameTests::GivenStrikeFollowedByThreeFourAndFive_WhenGameScoreCalculated_ShouldBe29 to implement scoring for strikes. 
+
+### Step 14. Refactor
+Consider carefully any improvements you can make to the code. Can you extract a class? e.g. to handle bonuses? If you find you want to create a new class, implement it using TDD.
+
+### Step 15. Continue using TDD to implement the tenth frame
+The tenth frame is different, in that it can be
+
+* a strike and two bonus balls
+* a spare and one bonus ball
+* or just two balls that are scored normally
+
+## Questions
+
+1. In Step 12, where we were implementing scoring for a spare, we could have gone on to write the test GivenOneSpareThen18OnesBowled_WhenGameScoreCalculated_ShouldBe29 
+to validate that the bonus score only applies to the first ball following the spare. What would have been the advantages of doing this? Disadvantages?
+2. What tests did you include in Step 13? What was your reasoning?
