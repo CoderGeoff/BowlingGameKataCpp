@@ -27,7 +27,7 @@
     <ClInclude Include="DoRoll.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="WithGame.h">
+    <ClInclude Include="With.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

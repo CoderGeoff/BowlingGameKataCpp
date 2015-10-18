@@ -88,7 +88,7 @@
     <ClInclude Include="TestFixtureMacro.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
-    <ClInclude Include="WithGame.h" />
+    <ClInclude Include="With.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BowlingGameTests.cpp" />
