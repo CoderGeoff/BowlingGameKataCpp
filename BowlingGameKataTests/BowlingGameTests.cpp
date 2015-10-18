@@ -10,7 +10,8 @@
 TEST_FIXTURE(BowlingGameTests, GivenTwenty0sBowled_WhenGameScoreCalculated_ShouldBe0,
     GivenTwenty1sBowled_WhenGameScoreCalculated_ShouldBe20,
     GivenOneSpareThen3Bowled_WhenGameScoreCalculated_ShouldBe16,
-    GivenStrikeFollowedByThreeFourAndFive_WhenGameScoreCalculated_ShouldBe29);
+    GivenStrikeFollowedByThreeFourAndFive_WhenGameScoreCalculated_ShouldBe29,
+    GivenTwoStrikes_WhenGameScoreCalculated_ShouldBe30);
 
 void BowlingGameTests::GivenTwenty0sBowled_WhenGameScoreCalculated_ShouldBe0()
 {
@@ -69,4 +70,17 @@ void BowlingGameTests::GivenStrikeFollowedByThreeFourAndFive_WhenGameScoreCalcul
     // Then
     int score = game.Score();
     CPPUNIT_ASSERT_EQUAL(29, score);
+}
+
+void BowlingGameTests::GivenTwoStrikes_WhenGameScoreCalculated_ShouldBe30()
+{
+    // Given
+    BowlingGame game;
+
+    // When
+    With(&game).Roll(10).Times(12);
+
+    // Then
+    int score = game.Score();
+    CPPUNIT_ASSERT_EQUAL(300, score);
 }
