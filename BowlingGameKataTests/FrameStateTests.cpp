@@ -13,7 +13,8 @@ TEST_FIXTURE(FrameStateTests, GivenNoBallsBowled_FrameShouldNotBeASpare,
     GivenSeventeenOnesAndOneNine_FrameShouldBeASpare,
     GivenNoBallsBowled_FrameShouldNotBeAStrike,
     GivenOneStrikeFrameBowled_FrameShouldBeAStrike,
-    GivenOneStrikeFollowedbySpare_FrameShouldBeASpare);
+    GivenOneStrikeFollowedbySpare_FrameShouldBeASpare,
+    GivenAStrike_FrameShouldNotBeASpare);
 
 void FrameStateTests::GivenNoBallsBowled_FrameShouldNotBeASpare()
 {
@@ -98,4 +99,17 @@ void FrameStateTests::GivenOneStrikeFollowedbySpare_FrameShouldBeASpare()
 
     // Then
     CPPUNIT_ASSERT_EQUAL(true, isSpare);
+}
+
+void FrameStateTests::GivenAStrike_FrameShouldNotBeASpare()
+{
+    // Given    
+    FrameState frameState;
+    With(&frameState).Roll(10).Times(1);
+
+    // When
+    bool isSpare = frameState.IsSpare();
+
+    // Then
+    CPPUNIT_ASSERT_EQUAL(false, isSpare);
 }
