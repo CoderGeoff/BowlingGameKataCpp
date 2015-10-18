@@ -3,8 +3,9 @@
 #include <cppUnit/extensions/HelperMacros.h>
 
 #include "TestFixtureMacro.h"
-#include "../BowlingGameKata/FrameState.h"
 #include "With.h"
+
+#include "../BowlingGameKata/FrameState.h"
 
 TEST_FIXTURE(FrameStateTests, GivenNoBallsBowled_FrameShouldNotBeASpare,
     GivenOneSpareFrameBowled_FrameShouldBeASpare,
