@@ -40,5 +40,5 @@ void FrameState::SetStateToStartOfFrame()
 
 bool FrameState::IsBonusBall() const
 {
-    return false;
+    return true;
 }
