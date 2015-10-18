@@ -16,7 +16,7 @@ void BowlingGameTests::GivenTwenty0sBowled_WhenGameScoreCalculated_ShouldBe0()
     BowlingGame game;
 
     // When
-    With<BowlingGame>(&game).Roll(0).Times(20);
+    With(&game).Roll(0).Times(20);
 
     // Then
     int score = game.Score();
@@ -29,7 +29,7 @@ void BowlingGameTests::GivenTwenty1sBowled_WhenGameScoreCalculated_ShouldBe20()
     BowlingGame game;
 
     // When
-    With<BowlingGame>(&game).Roll(1).Times(20);
+    With(&game).Roll(1).Times(20);
 
     // Then
     int score = game.Score();

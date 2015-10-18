@@ -22,8 +22,8 @@ void FrameStateTests::GivenOneSpareFrameBowled_FrameShouldBeASpare()
 {
     // Given
     FrameState frameState;
-    With<FrameState>(&frameState).Roll(0).Times(1);
-    With<FrameState>(&frameState).Roll(10).Times(1);
+    With(&frameState).Roll(0).Times(1);
+    With(&frameState).Roll(10).Times(1);
 
     // When
     bool isSpare = frameState.IsSpare();
@@ -36,9 +36,9 @@ void FrameStateTests::GivenOneSpareFrameFollowedByAZeroBall_FrameShouldNotBeASpa
 {
     // Given
     FrameState frameState;
-    With<FrameState>(&frameState).Roll(0).Times(1);
-    With<FrameState>(&frameState).Roll(10).Times(1);
-    With<FrameState>(&frameState).Roll(0).Times(1);
+    With(&frameState).Roll(0).Times(1);
+    With(&frameState).Roll(10).Times(1);
+    With(&frameState).Roll(0).Times(1);
 
     // When
     bool isSpare = frameState.IsSpare();
@@ -51,8 +51,8 @@ void FrameStateTests::GivenSeventeenOnesAndOneNine_FrameShouldBeASpare()
 {
     // Given
     FrameState frameState;
-    With<FrameState>(&frameState).Roll(1).Times(17);
-    With<FrameState>(&frameState).Roll(9).Times(1);
+    With(&frameState).Roll(1).Times(17);
+    With(&frameState).Roll(9).Times(1);
 
     // When
     bool isSpare = frameState.IsSpare();

@@ -1,4 +1,4 @@
-template <class WithT> class With;
+template <class WithT> class WithClass;
 
 template <class WithT>
 class DoRoll
@@ -8,7 +8,7 @@ class DoRoll
 
     explicit DoRoll(WithT* object, int pins) : m_Object(object), m_Pins(pins) {}
 
-    friend class With<WithT>;
+    friend class WithClass<WithT>;
 public:
     void Times(int times)
     {
