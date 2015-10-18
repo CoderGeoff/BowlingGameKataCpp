@@ -5,6 +5,7 @@
 class BowlingGame
 {
     int m_RunningTotal;
+    bool m_StrikeBonusActive;
     std::unique_ptr<FrameState> m_FrameState;
 public:
     BowlingGame();
