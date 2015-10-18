@@ -118,7 +118,6 @@ a test to validate it.
   * the remaining balls all go down the gutter
   
 So implement the test, GivenOneSpareThen3Bowled_WhenGameScoreCalculated_ShouldBe16.
-
 2. Compile and run the test.
 3. Verify that it fails on the assert.
 
