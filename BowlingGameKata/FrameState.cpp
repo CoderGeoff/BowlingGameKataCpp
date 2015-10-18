@@ -3,7 +3,7 @@
 
 static const int MaximumFrameScore = 10;
 
-FrameState::FrameState() : m_CurrentFrameScore(0), m_BallCountInCurrentFrame(0)
+FrameState::FrameState() : m_CurrentFrameCount(0), m_CurrentFrameScore(0), m_BallCountInCurrentFrame(0)
 {
 }
 
@@ -36,9 +36,10 @@ void FrameState::SetStateToStartOfFrame()
 {
     m_BallCountInCurrentFrame = 0;
     m_CurrentFrameScore = 0;
+    m_CurrentFrameCount++;
 }
 
 bool FrameState::IsBonusBall() const
 {
-    return true;
+    return m_CurrentFrameCount == 10;
 }

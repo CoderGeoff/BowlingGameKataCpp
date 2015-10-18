@@ -1,6 +1,7 @@
 #pragma once
 class FrameState
 {
+    int m_CurrentFrameCount;
     int m_CurrentFrameScore;
     int m_BallCountInCurrentFrame;
     bool IsAtEndOfFrame() const;
