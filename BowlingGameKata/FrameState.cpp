@@ -17,3 +17,8 @@ void FrameState::Roll(int pins)
     m_CurrentFrameScore = m_IsAtEndOfFrame ? pins : m_CurrentFrameScore + pins;
     m_IsAtEndOfFrame = !m_IsAtEndOfFrame;
 }
+
+bool FrameState::IsStrike()
+{
+    return true;
+}

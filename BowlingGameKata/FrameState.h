@@ -7,5 +7,6 @@ public:
     FrameState();
     bool IsSpare();
     void Roll(int pins);
+    bool IsStrike();
 };
 

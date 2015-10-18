@@ -10,7 +10,8 @@
 TEST_FIXTURE(FrameStateTests, GivenNoBallsBowled_FrameShouldNotBeASpare,
     GivenOneSpareFrameBowled_FrameShouldBeASpare,
     GivenOneSpareFrameFollowedByAZeroBall_FrameShouldNotBeASpare,
-    GivenSeventeenOnesAndOneNine_FrameShouldBeASpare);
+    GivenSeventeenOnesAndOneNine_FrameShouldBeASpare,
+    GivenNoBallsBowled_FrameShouldNotBeAStrike);
 
 void FrameStateTests::GivenNoBallsBowled_FrameShouldNotBeASpare()
 {
@@ -60,4 +61,11 @@ void FrameStateTests::GivenSeventeenOnesAndOneNine_FrameShouldBeASpare()
 
     // Then
     CPPUNIT_ASSERT_EQUAL(true, isSpare);
+}
+
+void FrameStateTests::GivenNoBallsBowled_FrameShouldNotBeAStrike()
+{
+    FrameState frameState;
+    bool isStrike = frameState.IsStrike();
+    CPPUNIT_ASSERT_EQUAL(false, isStrike);
 }
