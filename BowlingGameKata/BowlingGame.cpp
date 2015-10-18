@@ -11,8 +11,8 @@ void BowlingGame::Roll(int pins)
 {
     m_RunningTotal += BonusFromSparesAndStrikes(pins);
     m_RunningTotal += pins;
-    m_FrameState->Roll(pins);
 
+    m_FrameState->Roll(pins);
     if (m_FrameState->IsStrike() || m_FrameState->IsSpare())
     {
         int bonusBallCount = m_FrameState->IsSpare() ? 1 : 2;
