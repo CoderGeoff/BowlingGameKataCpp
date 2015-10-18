@@ -22,7 +22,7 @@ void FrameState::Roll(int pins)
 bool FrameState::IsStrike() const
 {
     if (IsBonusBall()) return false;
-    return m_CurrentFrameScore == MaximumFrameScore && m_BallCountInCurrentFrame == 1;
+    return m_CurrentFrameScore == MaximumFrameScore && m_BallCountInCurrentFrame < MaximumBallCountInSingleFrame;
 }
 
 bool FrameState::IsSpare() const
