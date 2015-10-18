@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "FrameState.h"
 
+static const int MaximumFrameScore = 10;
 
 FrameState::FrameState() : m_CurrentFrameScore(0), m_IsAtEndOfFrame(true)
 {
@@ -8,7 +9,6 @@ FrameState::FrameState() : m_CurrentFrameScore(0), m_IsAtEndOfFrame(true)
 
 bool FrameState::IsSpare()
 {
-    const int MaximumFrameScore = 10;
     return m_CurrentFrameScore == MaximumFrameScore && m_IsAtEndOfFrame;
 }
 
@@ -20,5 +20,5 @@ void FrameState::Roll(int pins)
 
 bool FrameState::IsStrike()
 {
-    return m_CurrentFrameScore == 10;
+    return m_CurrentFrameScore == MaximumFrameScore;
 }
