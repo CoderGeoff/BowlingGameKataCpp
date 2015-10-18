@@ -5,7 +5,7 @@ class With
 {
     WithT* m_Object;
 public:
-    explicit With(WithT* game) : m_Object(game) {}
+    explicit With(WithT* object) : m_Object(object) {}
     DoRoll<WithT> Roll(int pins) { return DoRoll<WithT>(m_Object, pins); }
 };
 
