@@ -4,6 +4,7 @@
 
 #include "TestFixtureMacro.h"
 #include "../BowlingGameKata/FrameState.h"
+#include "With.h"
 
 TEST_FIXTURE(FrameStateTests, GivenNoBallsBowled_FrameShouldNotBeASpare,
     GivenOneSpareFrameBowled_FrameShouldBeASpare,
@@ -21,8 +22,8 @@ void FrameStateTests::GivenOneSpareFrameBowled_FrameShouldBeASpare()
 {
     // Given
     FrameState frameState;
-    frameState.Roll(0);
-    frameState.Roll(10);
+    With<FrameState>(&frameState).Roll(0).Times(1);
+    With<FrameState>(&frameState).Roll(10).Times(1);
 
     // When
     bool isSpare = frameState.IsSpare();
@@ -35,9 +36,9 @@ void FrameStateTests::GivenOneSpareFrameFollowedByAZeroBall_FrameShouldNotBeASpa
 {
     // Given
     FrameState frameState;
-    frameState.Roll(0);
-    frameState.Roll(10);
-    frameState.Roll(0);
+    With<FrameState>(&frameState).Roll(0).Times(1);
+    With<FrameState>(&frameState).Roll(10).Times(1);
+    With<FrameState>(&frameState).Roll(0).Times(1);
 
     // When
     bool isSpare = frameState.IsSpare();
@@ -50,11 +51,8 @@ void FrameStateTests::GivenSeventeenOnesAndOneNine_FrameShouldBeASpare()
 {
     // Given
     FrameState frameState;
-    for (int i = 0; i < 17; ++i)
-    {
-        frameState.Roll(1);
-    }
-    frameState.Roll(9);
+    With<FrameState>(&frameState).Roll(1).Times(17);
+    With<FrameState>(&frameState).Roll(9).Times(1);
 
     // When
     bool isSpare = frameState.IsSpare();
