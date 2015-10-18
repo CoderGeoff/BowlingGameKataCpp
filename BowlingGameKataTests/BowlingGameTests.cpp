@@ -11,7 +11,7 @@ TEST_FIXTURE(BowlingGameTests, GivenTwenty0sBowled_WhenGameScoreCalculated_Shoul
     GivenTwenty1sBowled_WhenGameScoreCalculated_ShouldBe20,
     GivenOneSpareThen3Bowled_WhenGameScoreCalculated_ShouldBe16,
     GivenStrikeFollowedByThreeFourAndFive_WhenGameScoreCalculated_ShouldBe29,
-    GivenTwoStrikes_WhenGameScoreCalculated_ShouldBe30);
+    GivenTwelve10sInARow_WhenGameScoreCalculated_ShouldBe300,
 
 void BowlingGameTests::GivenTwenty0sBowled_WhenGameScoreCalculated_ShouldBe0()
 {
@@ -72,7 +72,7 @@ void BowlingGameTests::GivenStrikeFollowedByThreeFourAndFive_WhenGameScoreCalcul
     CPPUNIT_ASSERT_EQUAL(29, score);
 }
 
-void BowlingGameTests::GivenTwoStrikes_WhenGameScoreCalculated_ShouldBe30()
+void BowlingGameTests::GivenTwelve10sInARow_WhenGameScoreCalculated_ShouldBe300()
 {
     // Given
     BowlingGame game;
