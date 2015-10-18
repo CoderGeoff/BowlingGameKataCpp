@@ -7,5 +7,5 @@ Bonus::Bonus(int numberOfBonusesToBeGranted) : m_NumberOfBonusesRemaining(number
 
 bool Bonus::GrantForOneBall()
 {
-    return true;
+    return m_NumberOfBonusesRemaining-- > 0;
 }
