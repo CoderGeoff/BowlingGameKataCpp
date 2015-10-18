@@ -41,5 +41,5 @@ void FrameState::SetStateToStartOfFrame()
 
 bool FrameState::IsBonusBall() const
 {
-    return m_CurrentFrameCount == 10;
+    return m_CurrentFrameCount >= 10;
 }
