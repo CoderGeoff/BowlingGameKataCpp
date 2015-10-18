@@ -44,5 +44,5 @@ void FrameState::SetStateToStartOfFrame()
 
 bool FrameState::IsBonusBall() const
 {
-    return m_CurrentFrameCount >= FinalFrameNumber && m_CurrentFrameScore >= MaximumFrameScore;
+    return m_CurrentFrameCount == FinalFrameNumber && m_CurrentFrameScore >= MaximumFrameScore;
 }
