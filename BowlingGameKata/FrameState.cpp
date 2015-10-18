@@ -3,7 +3,7 @@
 
 static const int MaximumFrameScore = 10;
 
-FrameState::FrameState() : m_CurrentFrameScore(0), m_IsAtEndOfFrame(true), m_BallCountInCurrentFrame(0)
+FrameState::FrameState() : m_CurrentFrameScore(0), m_BallCountInCurrentFrame(0)
 {
 }
 
@@ -14,16 +14,21 @@ bool FrameState::IsSpare()
 
 void FrameState::Roll(int pins)
 {
-    if (m_IsAtEndOfFrame)
+    if (IsAtEndOfFrame())
     {
         m_BallCountInCurrentFrame = 0;
+        m_CurrentFrameScore = 0;
     }
+    m_CurrentFrameScore += pins;
     m_BallCountInCurrentFrame++;
-    m_CurrentFrameScore = m_IsAtEndOfFrame ? pins : m_CurrentFrameScore + pins;
-    m_IsAtEndOfFrame = m_BallCountInCurrentFrame == 2 || pins == MaximumFrameScore;
 }
 
 bool FrameState::IsStrike()
 {
     return m_CurrentFrameScore == MaximumFrameScore && m_BallCountInCurrentFrame == 1;
+}
+
+bool FrameState::IsAtEndOfFrame()
+{
+    return m_BallCountInCurrentFrame == 2 || m_CurrentFrameScore == MaximumFrameScore;
 }
