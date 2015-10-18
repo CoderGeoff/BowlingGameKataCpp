@@ -2,7 +2,7 @@
 class FrameState
 {
     int m_CurrentFrameScore;
-    bool m_IsSecondBallOfFrame;
+    bool m_IsAtEndOfFrame;
 public:
     FrameState();
     bool IsSpare();
