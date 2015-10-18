@@ -122,7 +122,7 @@ void FrameStateTests::GivenAStrikeInTenthFrame_WhenNextBallBowled_ShouldBeBonusB
     With(&frameState).Roll(10).Times(10);
 
     // When 
-    With(&frameState).Roll(0).Times(10);
+    With(&frameState).Roll(0).Times(1);
     bool isBonusBall = frameState.IsBonusBall();
 
     // Then
