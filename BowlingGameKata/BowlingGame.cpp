@@ -20,7 +20,7 @@ void BowlingGame::Roll(int pins)
     }
 }
 
-int BowlingGame::Score()
+int BowlingGame::Score() const
 {
     return m_RunningTotal;
 }
