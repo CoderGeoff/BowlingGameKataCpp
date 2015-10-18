@@ -3,6 +3,7 @@ class FrameState
 {
     int m_CurrentFrameScore;
     bool m_IsAtEndOfFrame;
+    int m_BallCountInCurrentFrame;
 public:
     FrameState();
     bool IsSpare();
