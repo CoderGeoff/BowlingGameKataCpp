@@ -130,7 +130,7 @@ a problem: we've already got one test failing; now we need to write another fail
 * Revert the last commit and go back to the point where all the tests were passing.
 * Stash the changes we've made in Step8 away somewhere.
   
-Each has it's merits. Here we're going to go with the last option.
+Each has its merits. Here we're going to go with the last option.
 
 1. Create a stash of the changes made in Step8. You can do this in SourceTree by clicking on the Stash icon and giving the stash a suitable name.
 
@@ -147,7 +147,7 @@ IsSpare() returns true whenever the last call to Roll() marked the end of a fram
 
 All we need the Frame to do right now is to tell us whenever we're at the end of a Spare frame.
 
-1. Create a new test ficture, FrameStateTests in a new file, FrameTests.cpp in BowlingGameTests.
+1. Create a new test fixture, FrameStateTests in a new file, FrameStateTests.cpp in BowlingGameTests.
 2. Implement the test GivenNoBallsBowled_FrameShouldNotBeASpare. The test should create a FrameState object, call IsSpare() and verify that the result is false. 
 3. Write just enough code to get the test to fail. When you create FrameState, implement it in the BowlingGame project. Take care when implementing IsSpare(); you're aiming to get a failing test.
 4. Run the tests and verify that the test fails on the assert.
