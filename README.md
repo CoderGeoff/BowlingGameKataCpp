@@ -176,7 +176,7 @@ At this point, FrameState successfully handles spares. It doesn't handle strikes
 1. Use TDD drive the implementation of FrameState::IsStrike() for frames 1 - 10. Stick to the Red, Green, Refactor cycle and commit the code as you go. Start with the tests 
   1. FrameStateTests::GivenNoBallsBowled_FrameShouldNotBeAStrike
   2. FrameStateTests::GivenOneStrikeFrameBowled_FrameShouldBeAStrike
-and add as many additional tests as necessary to complete the implementation. Don't write anything to handle the bonus balls in the 10th frame yet.
+and add as many additional tests as necessary to complete the implementation. Try to choose your tests so that each one drives the implementation forward; you should be able to complete this step with five or six tests. Don't write anything to handle the bonus balls in the 10th frame yet.
 2. Use the test, BowlingGameTests::GivenStrikeFollowedByThreeFourAndFive_WhenGameScoreCalculated_ShouldBe29 to implement scoring for strikes. 
 
 ### Step 14. Refactor
