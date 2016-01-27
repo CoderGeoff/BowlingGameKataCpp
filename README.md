@@ -162,7 +162,7 @@ All we need the Frame to do right now is to tell us whenever we're at the end of
 6. Red. Write the third test: GivenOneSpareFrameFollowedByAZeroBall_FrameShouldNotBeASpare.
 7. Green. Implement sufficient code to pass the test. Commit.
 8. Refactor. Look at your code and your tests for any improvements. Commit as you go.
-9. Continue in the same way, adding the test, GivenSeventeenOnesAndOneTen_FrameShouldBeASpare. Commit your changes as you go.
+9. Continue in the same way, adding the test, GivenSeventeenOnesAndOneNine_FrameShouldBeASpare. Commit your changes as you go.
 At this point, FrameState successfully handles spares. It doesn't handle strikes, and it doesn't handle any bonus balls bowled in the 10th frame.
 
 ### Step 12. Implement scoring for spares
